@@ -17,7 +17,6 @@ change composer.json
     }
 ```
 
-
 ## Publish the config
 
 ```
@@ -31,4 +30,29 @@ php artisan vendor:publish --provider="Tymon\JWTAuth\Providers\LaravelServicePro
 php arisan jwt:secret
 ```
 
+## Pull dow Cors
 
+```
+composer require barryvdh/laravel-cors
+```
+
+## Config Cors
+
+If you want to allow CORS on a specific middleware group or route, add the HandleCors middleware to your group:
+
+```
+protected $middlewareGroups = [
+    'web' => [
+       // ...
+    ],
+
+    'api' => [
+        // ...
+        \Barryvdh\Cors\HandleCors::class,
+    ],
+];
+```
+
+The defaults are set in config/cors.php. Copy this file to your own config directory to modify the values. You can publish the config using this command:
+
+```php artisan vendor:publish --provider="Barryvdh\Cors\ServiceProvider" ```

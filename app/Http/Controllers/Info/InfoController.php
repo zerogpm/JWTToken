@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Info;
 
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use Tymon\JWTAuth\Exceptions\JWTException;
 
 class InfoController extends Controller
 {
